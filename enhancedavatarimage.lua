@@ -124,7 +124,7 @@ function PANEL:Init()
   self.avatar.direction = false;
 end
 
-function PANEL:CalculatePanel()
+function PANEL:ResetPanel()
   local type, direction = self:GetType();
 
   if (type == 1) then self.hexagonData = nil; end
