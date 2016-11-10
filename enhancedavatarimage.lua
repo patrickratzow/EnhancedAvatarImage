@@ -65,6 +65,7 @@ function PANEL:CalculateCircle(w, h)
   local radius = h/2;
   local seg = 360;
 
+	self.circleData = {};
   table.insert( self.circleData, { x = x, y = y } )
   for i = 0, seg do
     local a = math.rad( ( i / seg ) * -360 )
@@ -136,7 +137,7 @@ end
 
 function PANEL:PerformLayout()
   self.avatar:SetSize( self:GetWide(), self:GetTall() )
-  self:CalculatePanel();
+  self:ResetPanel();
 end
 
 function PANEL:SetPlayer( ply, size )
@@ -144,8 +145,8 @@ function PANEL:SetPlayer( ply, size )
 end
 
 function PANEL:SetType(type, direction)
-  self.avatar.type = type;
-  self.avatar.direction = direction;
+  self.avatar.type = type or 3;
+  self.avatar.direction = direction or false;
 end
 
 function PANEL:GetType()
